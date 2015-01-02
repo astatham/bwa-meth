@@ -493,7 +493,7 @@ def tabulate_main(args):
             reference=a.reference,
             mapq=a.map_q,
             bams=" -I ".join(a.bams),
-            nome=("-sm GM -out_modes EMIT_VARIANT_AND_CYTOSINES -C WCG,2 -C GCH,2") if a.nome else ""
+            nome=("-sm GM -out_modes EMIT_VARIANT_AND_CYTOSINES -C WCG,2 -C GCH,2, -C HCH,2") if a.nome else "-sm BM -out_modes EMIT_VARIANT_AND_CYTOSINES -C CG,1 -C CH,1"
             ).replace("\n", " \\\n")
     sys.stderr.write(cmd + '\n')
     if not "--format" in args and a.context == "all":
